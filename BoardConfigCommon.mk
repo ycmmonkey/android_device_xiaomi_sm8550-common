@@ -187,6 +187,10 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 # Touchscreen
 $(call soong_config_set, XIAOMI_TOUCH, HIGH_TOUCH_POLLING_PATH, /sys/devices/virtual/touch/touch_dev/bump_sample_rate)
 
+# Sensors
+TARGET_SENSOR_NOTIFIER_EXT ?= libsensor-notifier-ext
+$(call soong_config_set, xiaomiSm8550SensorVars, extensionLibs, $(TARGET_SENSOR_NOTIFIER_EXT))
+
 # VINTF
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \

@@ -27,10 +27,10 @@ AB_OTA_PARTITIONS := \
 # API level
 BOARD_SHIPPING_API_LEVEL := 33
 
-# SOONG_CONFIG_NAMESPACES += ufsbsg
-# SOONG_CONFIG_ufsbsg += ufsframework
-# SOONG_CONFIG_ufsbsg_ufsframework := bsg
-$(call soong_config_set, ufsbsg, ufsframework, bsg)
+SOONG_CONFIG_NAMESPACES += ufsbsg
+SOONG_CONFIG_ufsbsg += ufsframework
+SOONG_CONFIG_ufsbsg_ufsframework := bsg
+# $(call soong_config_set, ufsbsg, ufsframework, bsg)
 
 # Architecture
 TARGET_ARCH := arm64
@@ -59,7 +59,7 @@ $(call soong_config_set, android_hardware_audio, run_64bit, true)
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 
-$(call soong_config_set, qtidisplay, use_ycrcb_camera_encode, true)
+# $(call soong_config_set, qtidisplay, use_ycrcb_camera_encode, true)
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
@@ -168,6 +168,7 @@ BOARD_ROOT_EXTRA_SYMLINKS += /lib/modules:/vendor/lib/modules
 
 # Platform
 TARGET_BOARD_PLATFORM := kalama
+TARGET_BOOTLOADER_BOARD_NAME := kalama
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno740
 
 # Recovery

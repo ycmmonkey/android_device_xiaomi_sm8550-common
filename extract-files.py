@@ -12,11 +12,8 @@ from extract_utils.fixups_blob import (
 )
 from extract_utils.fixups_lib import (
     lib_fixup_remove,
-    lib_fixup_remove_arch_suffix,
-    lib_fixup_vendorcompat,
+    lib_fixups,
     lib_fixups_user_type,
-    libs_clang_rt_ubsan,
-    libs_proto_3_9_1,
 )
 from extract_utils.main import (
     ExtractUtils,
@@ -37,8 +34,7 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 
 
 lib_fixups: lib_fixups_user_type = {
-    libs_clang_rt_ubsan: lib_fixup_remove_arch_suffix,
-    libs_proto_3_9_1: lib_fixup_vendorcompat,
+    **lib_fixups,
     (
         'vendor.qti.imsrtpservice@3.0',
         'vendor.qti.imsrtpservice@3.1',
@@ -107,6 +103,8 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/nfc_nci.nqx.default.hw.so'
     ): blob_fixup()
         .add_needed('libbase_shim.so'),
+        'vendor/etc/ueventd.rc' : blob_fixup()
+        .add_line_if_missing('\n# Charger\n/sys/class/qcom-battery     night_charging            0660    system  system')
 }  # fmt: skip
 
 module = ExtractUtilsModule(

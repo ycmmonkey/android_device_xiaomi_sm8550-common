@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from Redmi K60 Pro (OS2.0.102.0.VMKCNXM).
+## are from Xiaomi 13 (OS2.0.200.7.VMCCNXM).
 
 # ACDBs
 vendor/etc/acdbdata/IDP_UPD/IDP_UPD_acdb_cal.acdb
@@ -63,6 +63,8 @@ vendor/etc/misound_asc_model.tflite
 vendor/etc/models/acd/event.eai
 vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/speech.eai
+vendor/lib64/hw/audio.primary.kalama.so
+vendor/lib64/hw/gyro_fusion_interface.so
 vendor/etc/seccomp_policy/c2audio.vendor.base-arm64.policy
 vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy
 vendor/lib64/libAlacSwDec.so
@@ -84,6 +86,9 @@ vendor/lib64/libcapiv2svarnnvendor.so
 vendor/lib64/libcapiv2udk7vendor.so
 vendor/lib64/libcapiv2uvvendor.so
 vendor/lib64/libdsd2pcm.so
+vendor/lib64/hw/sound_trigger.primary.kalama.so
+vendor/etc/vintf/manifest/manifest_non_qmaa_extn.xml
+vendor/etc/vintf/manifest/manifest_non_qmaa.xml
 vendor/lib64/libeai_fixed.so
 vendor/lib64/libeai_float.so
 vendor/lib64/libfcsam.so;FIX_SONAME
@@ -689,9 +694,9 @@ vendor/lib64/libllvm-qgl.so
 # Graphics (Vulkan)
 vendor/lib64/hw/vulkan.adreno.so
 
-# Hotword Enrollment
-product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
-product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk
+# Hotword Enrollment - APKs pinned from OS2.0.200.2.VMBEUXM
+product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk|194bbcc27ebad3952294fc3617b2a23db92e767a
+product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk|8eb57dcd535082ed41136383656d0c8b514b2213
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
@@ -1126,6 +1131,13 @@ vendor/lib64/vendor.qti.hardware.qccvndhal@1.0.so
 # QCV
 vendor/bin/init.qti.qcv.sh
 vendor/etc/init/init.qti.qcv.rc
+
+# QEGAHAL
+vendor/bin/vendor.qti.qegahal-service
+vendor/etc/init/vendor.qti.qegahal-service.rc
+vendor/etc/vintf/manifest/vendor.qti.qegahal-service.xml
+vendor/lib64/vendor.qti.qegahal-impl.so
+vendor/lib64/vendor.qti.qegahal-V1-ndk_platform.so
 
 # QESDK
 vendor/bin/qesdk-manager

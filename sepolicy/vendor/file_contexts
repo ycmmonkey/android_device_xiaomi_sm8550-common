@@ -10,17 +10,17 @@
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.quickcamera@1.0-service                       u:object_r:hal_quickcamera_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.camera\.provider@2\.7-virtual-camera-service      u:object_r:hal_camera_default_exec:s0
 /mnt/vendor/persist/camera(/.*)?                                                                    u:object_r:camera_persist_file:s0
-/odm/lib(64)?/libmialgo_utils\.so                                                                   u:object_r:same_process_hal_file:s0
-/odm/lib(64)?/libmiocr\.so                                                                          u:object_r:same_process_hal_file:s0
-/odm/lib(64)?/libxmi_slow_motion_mein\.so                                                           u:object_r:same_process_hal_file:s0
+/(vendor|odm|odm)/lib(64)?/libmialgo_utils\.so                                                      u:object_r:same_process_hal_file:s0
+/(vendor|odm|odm)/lib(64)?/libmiocr\.so                                                             u:object_r:same_process_hal_file:s0
+/(vendor|odm|odm)/lib(64)?/libxmi_slow_motion_mein\.so                                              u:object_r:same_process_hal_file:s0
 /persist/camera(/.*)?                                                                               u:object_r:camera_persist_file:s0
 /vendor/lib/rfsa/adsp/(.*)?                                                                         u:object_r:same_process_hal_file:s0
 /vendor/lib64/libSnpe.*\.so                                                                         u:object_r:same_process_hal_file:s0
 /vendor/lib64/libSNPE\.so                                                                           u:object_r:same_process_hal_file:s0
 /odm/lib64/libmialgo_ai_vision\.so                                                                  u:object_r:same_process_hal_file:s0
 /(vendor|odm)/lib(64)?/libmialgo_ai_vision\.so                                                      u:object_r:same_process_hal_file:s0 
-/odm/lib/rfsa/adsp/libarcsoft_beauty_hvx_skel.so                                                    u:object_r:same_process_hal_file:s0
-/odm/lib/rfsa/adsp/libmialgo_night_align_cdsp_skel.so                                               u:object_r:same_process_hal_file:s0
+# /odm/lib/rfsa/adsp/libarcsoft_beauty_hvx_skel.so                                                    u:object_r:same_process_hal_file:s0
+# /odm/lib/rfsa/adsp/libmialgo_night_align_cdsp_skel.so                                               u:object_r:same_process_hal_file:s0
 /odm/lib64/libalCFR\.so                                                                             u:object_r:same_process_hal_file:s0
 /odm/lib64/libarcsoft.*\.so                                                                         u:object_r:same_process_hal_file:s0
 /odm/lib64/libbeauty_face_interface\.so                                                             u:object_r:same_process_hal_file:s0
@@ -36,6 +36,7 @@
 /odm/lib64/libmpbase\.so                                                                            u:object_r:same_process_hal_file:s0
 /odm/lib64/libsupermoon.so                                                                          u:object_r:same_process_hal_file:s0
 /odm/lib64/libxmi.*\.so                                                                             u:object_r:same_process_hal_file:s0
+/odm/lib/rfsa/adsp/(.*)?                                                                            u:object_r:same_process_hal_file:s0
 
 # DisplayFeature
 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-+[0-1](/.*)? u:object_r:vendor_sysfs_displayfeature:s0

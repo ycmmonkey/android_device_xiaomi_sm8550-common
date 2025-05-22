@@ -77,6 +77,7 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/soundfx/libdlbvol.so',
         'vendor/lib64/soundfx/libhwdap.so',
         'vendor/lib64/soundfx/libswspatializer.so',
+        'vendor/lib64/hw/audio.primary.kalama.so',
     ): blob_fixup()
         .add_needed('libstagefright_foundation-v33.so'),
     'vendor/lib64/c2.dolby.client.so' : blob_fixup()
@@ -90,14 +91,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/etc/media_codecs_kalama_vendor.xml',
     ): blob_fixup()
         .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', ''),
-    (
-        'odm/lib64/libcamxcommonutils.so',
-        'odm/lib64/hw/com.qti.chi.override.so',
-        'odm/lib64/hw/camera.xiaomi.so',
-        'odm/lib64/libchifeature2.so',
-        'odm/lib64/libmialgoengine.so'
-    ): blob_fixup()
-        .add_needed('libprocessgroup_shim.so'),
     (
         'vendor/lib64/libstfactory-vendor.so',
         'odm/lib64/nfc_nci.nqx.default.hw.so'

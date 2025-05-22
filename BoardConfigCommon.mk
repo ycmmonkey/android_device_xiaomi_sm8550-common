@@ -51,8 +51,8 @@ AUDIO_FEATURE_ENABLED_KEEP_ALIVE := true
 AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
 AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
-BOARD_SUPPORTS_OPENSOURCE_STHAL := true
 TARGET_USES_QCOM_MM_AUDIO := true
+TARGET_PROVIDES_AUDIO_HAL := true
 
 $(call soong_config_set, android_hardware_audio, run_64bit, true)
 
@@ -68,9 +68,10 @@ TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 BOARD_USES_QCOM_HARDWARE := true
 
 # Lineage Health
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_ENABLED  := 0
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_DISABLED  := 1
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/qcom-battery/night_charging
+$(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
+$(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/qcom-battery/night_charging)
+$(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 
 # Kernel
 BOARD_KERNEL_BASE        := 0x00000000
@@ -203,7 +204,11 @@ DEVICE_MANIFEST_FILE := \
     $(COMMON_PATH)/configs/vintf/manifest_socrates.xml
 
 # Vendor security patch
-VENDOR_SECURITY_PATCH := 2025-03-01
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+
+
+# DeviceAsWebcam
+TARGET_BUILD_DEVICE_AS_WEBCAM := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

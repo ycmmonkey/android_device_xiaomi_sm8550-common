@@ -19,7 +19,6 @@ on boot
     chmod 0664 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param
     chmod 0664 /sys/class/touch/touch_dev/fod_press_status
 
-
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
     mkdir /data/vendor/misc/mi_fp 0770 system system

@@ -56,11 +56,12 @@ PRODUCT_PACKAGES += \
     libaudiochargerlistener \
     libbatterylistener \
     libfmpal \
+    libats \
     libhfp_pal \
-    libsndcardparser \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
+    vendor.qti.hardware.AGMIPC@1.0-impl \
     libvolumelistener
 
 PRODUCT_COPY_FILES += \
@@ -110,6 +111,9 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    lib_bt_aptx \
+    lib_bt_ble \
+    lib_bt_bundle \
     audio.bluetooth.default \
     libbluetooth_audio_session
 
@@ -187,9 +191,9 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.qti
 
 # Lineage Health
-$(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/qcom-battery/input_suspend)
 $(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
-$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/qcom-battery/night_charging)
+$(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
 $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 
 PRODUCT_PACKAGES += \
@@ -199,9 +203,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/init.sm8550.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sm8550.rc \
     $(LOCAL_PATH)/init/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
-
-# PRODUCT_PACKAGES += \
-#     ueventd.xiaomi.rc
 
 # IPA
 PRODUCT_PACKAGES += \

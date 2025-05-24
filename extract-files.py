@@ -42,10 +42,15 @@ lib_fixups: lib_fixups_user_type = {
     ): lib_fixup_vendor_suffix,
     (
         'audio.primary.kalama',
+        'libar-acdb',
+        'libar-gsl',
         'libagmclient',
+        'liblx-osal',
         'libagmmixer',
+        'libats',
         'libpalclient',
         'libwpa_client',
+        'vendor.qti.hardware.AGMIPC@1.0-impl',
     ): lib_fixup_remove,
 }
 
@@ -97,7 +102,7 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .add_needed('libbase_shim.so'),
         'vendor/etc/ueventd.rc' : blob_fixup()
-        .add_line_if_missing('\n# Charger\n/sys/class/qcom-battery     night_charging            0660    system  system')
+        .add_line_if_missing('\n# Charger\n/sys/class/qcom-battery     input_suspend            0660    system  system')
 }  # fmt: skip
 
 module = ExtractUtilsModule(

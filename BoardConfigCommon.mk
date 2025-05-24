@@ -34,9 +34,9 @@ SOONG_CONFIG_ufsbsg_ufsframework := bsg
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a-branchprot
+TARGET_ARCH_VARIANT := armv9-a
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_VARIANT := kryo
+TARGET_CPU_VARIANT := kryo785
 
 # Audio
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
@@ -53,6 +53,8 @@ AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 TARGET_USES_QCOM_MM_AUDIO := true
 TARGET_PROVIDES_AUDIO_HAL := true
+TARGET_PROVIDES_LIBAGM := true
+TARGET_PROVIDES_LIBAR_PAL := true
 
 $(call soong_config_set, android_hardware_audio, run_64bit, true)
 

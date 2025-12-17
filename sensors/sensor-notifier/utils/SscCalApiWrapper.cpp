@@ -46,7 +46,7 @@ void SscCalApiWrapper::initCurrentSensors(bool debug) {
 
 void SscCalApiWrapper::processMsg(_oem_msg* msg) {
     if (process_msg != NULL) {
-        LOG(DEBUG) << "sending oem_msg for sensor " << msg->sensorType
+        LOG(ERROR) << "sending oem_msg for sensor " << msg->sensorType
                    << " with type: " << msg->notifyType << " and value: " << msg->value;
         process_msg(msg);
     }

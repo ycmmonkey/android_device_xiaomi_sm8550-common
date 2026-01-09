@@ -435,3 +435,9 @@ PRODUCT_PACKAGES += \
     firmware_wlanmdsp.otaupdate_symlink \
     firmware_wlan_mac.bin_symlink \
     firmware_WCNSS_qcom_cfg.ini_symlink
+
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
+PRODUCT_PACKAGES += \
+    libcodec2_hidl_shim

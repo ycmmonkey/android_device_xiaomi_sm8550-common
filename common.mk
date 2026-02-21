@@ -128,6 +128,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service
 
+# Dolby Audio
+PRODUCT_PACKAGES += \
+    libcodec2_hidl_shim \
+    XiaomiDolby
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
@@ -247,6 +252,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LineageResXiaomi
 
+# Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+
 # Partitions
 PRODUCT_PACKAGES += \
     vendor_bt_firmware_mountpoint \
@@ -347,9 +358,6 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
 
 # Touchscreen
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch-service.xiaomi
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 

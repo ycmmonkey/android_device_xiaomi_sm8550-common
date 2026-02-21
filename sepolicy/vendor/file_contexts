@@ -16,6 +16,15 @@
 /dev/mi_display/disp_feature u:object_r:vendor_displayfeature_device:s0
 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-+[0-1](/.*)? u:object_r:vendor_sysfs_displayfeature:s0
 
+# Dolby audio
+/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service   u:object_r:hal_dms_default_exec:s0
+/vendor/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service                   u:object_r:hal_dms_default_exec:s0
+/vendor/bin/hw/dolbycodec2                                                 u:object_r:vendorcodec_exec:s0
+/vendor/bin/hw/vendor\.dolby\.media\.c2@1\.0-service                       u:object_r:mediacodec_exec:s0
+
+# Dolby Data
+/data/vendor/dolby(/.*)?                                                   u:object_r:vendor_data_file:s0
+
 # Dumpstate
 /vendor/bin/hw/android\.hardware\.dumpstate-service.xiaomi u:object_r:hal_dumpstate_impl_exec:s0
 
@@ -30,11 +39,6 @@
 
 # IR
 /dev/ir_spi u:object_r:ir_spi_device:s0
-
-# Media
-/vendor/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service u:object_r:hal_dms_default_exec:s0
-/vendor/bin/hw/dolbycodec2 u:object_r:vendorcodec_exec:s0
-/vendor/bin/hw/vendor\.dolby\.media\.c2@1\.0-service u:object_r:mediacodec_exec:s0
 
 # NFC
 /odm/bin/hw/vendor\.nxp\.hardware\.nfc@2\.0-service u:object_r:hal_nfc_default_exec:s0
@@ -53,3 +57,6 @@
 /sys/{class,devices/virtual}/thermal/thermal_message/flash_state u:object_r:sys_thermal_flash_state:s0
 /sys/{class,devices/virtual}/thermal/thermal_message/torch_real_level u:object_r:sys_thermal_torch_real_level:s0
 /sys/{class,devices/virtual}/thermal/thermal_message/wifi_limit u:object_r:sys_thermal_wifi_limit:s0
+
+# ZRAM
+/sys/block/zram0/comp_algorithm 					       u:object_r:sysfs_zram:s0

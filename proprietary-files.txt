@@ -53,10 +53,14 @@ vendor/lib64/libxlog.so
 
 # Audio FX modules
 vendor/lib64/soundfx/libasphere.so
+vendor/lib64/soundfx/libdlbvol.so
+vendor/lib64/soundfx/libhwdap.so
 vendor/lib64/soundfx/libmisoundfx.so
 vendor/lib64/soundfx/libquasar.so
 vendor/lib64/soundfx/libshoebox.so
+vendor/lib64/soundfx/libspatializer.so
 vendor/lib64/soundfx/libswgamedap.so
+vendor/lib64/soundfx/libswspatializer.so
 vendor/lib64/soundfx/libswvqe.so
 
 # BatterySecret
@@ -394,7 +398,9 @@ vendor/lib64/libcodec2_soft_ddpdec.so
 vendor/lib64/libcodec2_store_dolby.so
 vendor/lib64/libdapparamstorage.so
 vendor/lib64/libdeccfg.so
+vendor/lib64/libdlbpreg.so
 vendor/lib64/libdlbdsservice.so
+vendor/lib64/libswspatializer_ext.so
 vendor/lib64/libdolbyottcameracontrol.so
 vendor/lib64/libeglcore.so
 vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
@@ -1074,6 +1080,10 @@ vendor/etc/init/vendor.qti.qspmhal@1.0-service.rc
 vendor/etc/seccomp_policy/qspm.policy
 vendor/lib64/vendor.qti.qspmhal@1.0-impl.so
 vendor/lib64/vendor.qti.qspmhal@1.0.so
+
+# RIL (Esim hooking)
+system_ext/framework/mirilhook.jar|e7d69ab439ad0fdf0c463d17f6de654da8ad676e
+system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
 # RIL
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk

@@ -1,15 +1,17 @@
 # Camera
-type vendor_panel_info_prop;
-allow platform_app app_data_file:file execute;
-allow platform_app vendor_audio_prop:file { open read getattr };
-binder_call(platform_app, hal_camera_default)
+allow platform_app adsprpcd_file:dir { getattr search read watch };
+allow platform_app hal_camera_default:binder { call transfer };
+allow platform_app hal_camera_default:binder transfer;
+allow platform_app hal_camera_default:fd *;
+allow platform_app vendor_file:dir { watch };
+allow platform_app vendor_hal_camerapostproc_xiaomi:binder { call transfer };
+allow platform_app vendor_hal_camerapostproc_xiaomi:binder transfer;
+allow platform_app vendor_hal_camerapostproc_xiaomi:fd *;
 get_prop(platform_app, qemu_hw_prop)
-get_prop(platform_app, vendor_fp_prop)
-get_prop(platform_app, vendor_panel_info_prop)
 get_prop(platform_app, vendor_camera_sensor_prop)
 get_prop(platform_app, vendor_camera_p3enable_prop)
-get_prop(platform_app, vendor_camera_prop)
-get_prop(platform_app, vendor_display_prop)
+hal_client_domain(platform_app, vendor_hal_camerapostproc_xiaomi)
+dontaudit hal_camera_default shell_data_file:dir search;
 
 # Dolby
 allow platform_app hal_dms_hwservice:hwservice_manager find;

@@ -87,11 +87,14 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcodec2_shim.so'),
     (
         'vendor/bin/hw/vendor.dolby.media.c2@1.0-service', 
-        'vendor/bin/hw/dolbycodec2',
     ): blob_fixup()
         .add_needed('libshim_dolby.so'),
     'vendor/lib64/vendor.libdpmframework.so' : blob_fixup()
         .add_needed('libhidlbase_shim.so'),
+    (
+        'vendor/bin/hw/dolbycodec2'
+    ): blob_fixup()
+        .add_needed('libstagefright_foundation-v33.so'),
     (
         'vendor/bin/hw/android.hardware.contexthub-service.qmi',
         'vendor/lib64/libstfactory-vendor.so',

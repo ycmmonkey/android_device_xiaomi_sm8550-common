@@ -54,7 +54,6 @@ vendor.qc2audio.suspend.enabled=true
 
 # Bluetooth
 bluetooth.profile.a2dp.source.enabled=true
-bluetooth.profile.asha.central.enabled=true
 bluetooth.profile.avrcp.target.enabled=true
 bluetooth.profile.bap.broadcast.assist.enabled=true
 bluetooth.profile.bap.broadcast.source.enabled=false
@@ -65,7 +64,7 @@ bluetooth.profile.csip.set_coordinator.enabled=true
 bluetooth.profile.gatt.enabled=true
 bluetooth.profile.hap.client.enabled=true
 bluetooth.profile.hfp.ag.enabled=true
-bluetooth.profile.hid.device.enabled=true
+bluetooth.profile.hid.device.enabled=false
 bluetooth.profile.hid.host.enabled=true
 bluetooth.profile.map.server.enabled=true
 bluetooth.profile.mcp.server.enabled=true
@@ -73,7 +72,6 @@ bluetooth.profile.opp.enabled=true
 bluetooth.profile.pan.nap.enabled=true
 bluetooth.profile.pan.panu.enabled=true
 bluetooth.profile.pbap.server.enabled=true
-bluetooth.profile.sap.server.enabled=true
 bluetooth.profile.tbs.server.enabled=true
 bluetooth.profile.vc.server.enabled=true
 bluetooth.profile.vcp.controller.enabled=false
@@ -193,9 +191,6 @@ vendor.gralloc.enable_logs=0
 # HWUI
 debug.hwui.use_hint_manager=true
 debug.hwui.target_cpu_time_percent=30
-
-# Keyguard
-keyguard.no_require_sim=true
 
 # Media
 debug.c2.use_dmabufheaps=1

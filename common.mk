@@ -129,14 +129,9 @@ PRODUCT_PACKAGES += \
 
 # Dolby Audio
 PRODUCT_PACKAGES += \
+    libcodec2_hidl_shim \
     XiaomiDolby
-
-PRODUCT_PACKAGES += \
-    libcodec2_hidl_shim.vendor
     
-# Dolby Vision
-$(call soong_config_set, dolby_vision, enabled, true)
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey

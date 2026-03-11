@@ -1,0 +1,11 @@
+//
+// Copyright (C) 2023-2025 Paranoid Android
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+runtime_resource_overlay {
+    name: "FrameworksEuiccCommon",
+    device_specific: true,
+}

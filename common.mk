@@ -141,17 +141,13 @@ PRODUCT_PACKAGES += \
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# eUICC
+PRODUCT_PACKAGES += \
+    XiaomiEsimSwitcher
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
-
-# eUICC
-PRODUCT_PACKAGES += \
-    XiaomiEsimSwitcher \
-    XiaomiEuicc
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.euicc.xml
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -162,9 +158,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
 # Fstab
-PRODUCT_PACKAGES += \
-    fstab.qcom \
-    fstab.qcom.vendor_ramdisk
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init/charger_fstab.qti:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/etc/charger_fstab.qti \
+    $(LOCAL_PATH)/init/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
+    $(LOCAL_PATH)/init/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -193,9 +190,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
 # Init
-PRODUCT_PACKAGES += \
-    init.sm8550.rc \
-    init.recovery.qcom.rc
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init/init.sm8550.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sm8550.rc \
+    $(LOCAL_PATH)/init/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
 
 # IPA
 PRODUCT_PACKAGES += \
@@ -254,7 +251,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     CarrierConfigOverlayCommon \
     FrameworkResOverlayCommon \
-    FrameworksEuiccCommon \
     SystemUIOverlayCommon \
     SettingsOverlayCommon \
     TelephonyOverlayCommon \
@@ -371,6 +367,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
 $(call soong_config_set, XIAOMI_TOUCH, HIGH_TOUCH_POLLING_PATH, /sys/devices/virtual/touch/touch_dev/bump_sample_rate)
+
+# Touch Orientation
+PRODUCT_PACKAGES += \
+    TouchOrientation
 
 # Update engine
 PRODUCT_PACKAGES += \

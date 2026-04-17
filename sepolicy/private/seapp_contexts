@@ -1,5 +1,2 @@
 # Euicc
 user=system seinfo=platform isPrivApp=true name=com.xiaomi.mtb domain=esimswitcher_app type=system_app_data_file levelFrom=all
-
-# Touch Orientation
-user=system seinfo=platform isPrivApp=true name=org.lineageos.touchorientation domain=touchorientation_app type=system_app_data_file levelFrom=all

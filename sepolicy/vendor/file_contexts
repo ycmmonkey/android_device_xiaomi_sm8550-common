@@ -55,7 +55,6 @@
 /dev/xiaomi-touch u:object_r:touchfeature_device:s0
 /vendor/bin/hw/vendor\.lineage\.touch-service\.xiaomi u:object_r:hal_lineage_touch_default_exec:s0
 /sys/devices/platform/goodix_ts.0(/.*)? u:object_r:sysfs_goodix_touch:s0
-/sys/class/touch/touch_dev/panel_orientation u:object_r:vendor_sysfs_touch:s0
 
 # Thermal
 /vendor/bin/mi_thermald u:object_r:mi_thermald_exec:s0

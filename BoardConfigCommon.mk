@@ -118,15 +118,6 @@ TARGET_KERNEL_EXT_MODULES := \
 	nxp/opensource/driver
 
 BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
-BOOT_KERNEL_MODULES += \
-    q6_pdr_dlkm.ko \
-    q6_notifier_dlkm.ko \
-    snd_event_dlkm.ko \
-    gpr_dlkm.ko \
-    spf_core_dlkm.ko \
-    adsp_loader_dlkm.ko \
-    qti_battery_charger.ko \
-    qrng_dlkm.ko
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_dlkm))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.first_stage))
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD  := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
@@ -161,9 +152,6 @@ $(foreach p, $(call to-upper, $(BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST))
 
 BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE := false
 include vendor/lineage/config/BoardConfigReservedSize.mk
-
-BOARD_ROOT_EXTRA_FOLDERS += vendor/firmware vendor/firmware_mnt
-BOARD_ROOT_EXTRA_SYMLINKS += /lib/modules:/vendor/lib/modules
 
 # Platform
 TARGET_BOARD_PLATFORM := kalama
@@ -204,7 +192,7 @@ DEVICE_MANIFEST_FILE := \
     $(COMMON_PATH)/configs/vintf/manifest_xiaomi.xml
 
 # Vendor security patch
-VENDOR_SECURITY_PATCH := 2025-12-01
+VENDOR_SECURITY_PATCH := 2026-02-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

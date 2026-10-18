@@ -52,22 +52,24 @@ blob_fixups: blob_fixups_user_type = {
         .apktool_patch('blob-patches/WfdCommon.patch'),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
-    'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so' : blob_fixup()
+    'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
-    'odm/lib64/libmt@1.3.so' : blob_fixup()
+    'odm/lib64/libmt@1.3.so': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-v33.so'),
-    ('vendor/bin/hw/android.hardware.security.keymint-service-qti',
-     'vendor/lib64/libqtikeymint.so') : blob_fixup()
+    (
+        'vendor/bin/hw/android.hardware.security.keymint-service-qti',
+        'vendor/lib64/libqtikeymint.so'
+    ): blob_fixup()
         .add_needed('android.hardware.security.rkp-V3-ndk.so'),
     'vendor/etc/public.libraries.txt': blob_fixup()
         .regex_replace('libqti-perfd-client.so\n', ''),
-    'vendor/etc/seccomp_policy/qwesd@2.0.policy' : blob_fixup()
+    'vendor/etc/seccomp_policy/qwesd@2.0.policy': blob_fixup()
         .add_line_if_missing('pipe2: 1'),
-    'vendor/etc/qcril_database/upgrade/config/6.0_config.sql' : blob_fixup()
+    'vendor/etc/qcril_database/upgrade/config/6.0_config.sql': blob_fixup()
         .regex_replace('(persist\\.vendor\\.radio\\.redir_party_num.*)true', '\\1false'),
-    'vendor/lib64/libqcodec2_core.so' : blob_fixup()
+    'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libcodec2_shim.so'),
-    'vendor/lib64/vendor.libdpmframework.so' : blob_fixup()
+    'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
     (
         'vendor/bin/hw/android.hardware.contexthub-service.qmi',
@@ -75,26 +77,18 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/nfc_nci.nqx.default.hw.so'
     ): blob_fixup()
         .add_needed('libbase_shim.so'),
-    (
-       'vendor/etc/media_codecs_kalama.xml',
-    ): blob_fixup()
+    'vendor/etc/media_codecs_kalama.xml': blob_fixup()
         .regex_replace(r'\s*<MediaCodec\b[^>]*name=\"c2\.dolby\.[^>]*>[\s\S]*?<\/MediaCodec>', '')
         .regex_replace('.+media_codecs_(dolby_audio|google_audio|google_c2|google_telephony|vendor_audio).+\n', ''),
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
         .regex_replace(r'\s*<fqname>@1\.0::IComponentStore/dolby</fqname>', '')
         .regex_replace('.+DOLBY.+\n', ''),
     (
-        'vendor/bin/poweropt-service',
-        'vendor/lib64/libaodoptfeature.so',
         'vendor/lib64/libdpps.so',
-        'vendor/lib64/libpowercore.so',
-        'vendor/lib64/libpsmoptfeature.so',
-        'vendor/lib64/libsnapdragoncolor-manager.so',
-        'vendor/lib64/libstandbyfeature.so',
-        'vendor/lib64/libvideooptfeature.so',
+        'vendor/lib64/libsnapdragoncolor-manager.so'
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
-    'vendor/etc/init/hw/init.batterysecret.rc' : blob_fixup()
+    'vendor/etc/init/hw/init.batterysecret.rc': blob_fixup()
         .regex_replace('group system system wakelock', 'group system system usb wakelock'),
 }  # fmt: skip
 

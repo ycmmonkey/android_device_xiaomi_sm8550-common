@@ -185,9 +185,11 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml
 
 DEVICE_FRAMEWORK_MANIFEST_FILE += $(COMMON_PATH)/configs/vintf/framework_manifest.xml
-DEVICE_MANIFEST_FILE := \
+DEVICE_MANIFEST_FILE += \
     $(COMMON_PATH)/configs/vintf/manifest_kalama.xml \
     $(COMMON_PATH)/configs/vintf/manifest_xiaomi.xml
+
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/configs/hidl/c2_manifest_vendor.xml
 
 # Vendor security patch
 VENDOR_SECURITY_PATCH := 2026-08-01

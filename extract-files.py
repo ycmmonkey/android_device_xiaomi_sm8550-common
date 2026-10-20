@@ -76,7 +76,7 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .add_needed('libbase_shim.so'),
     'vendor/etc/media_codecs_kalama.xml': blob_fixup()
-        .regex_replace(r'\s*<MediaCodec\b[^>]*name=\"c2\.dolby\.[^>]*>[\s\S]*?<\/MediaCodec>', '')
+        # .regex_replace(r'\s*<MediaCodec\b[^>]*name=\"c2\.dolby\.[^>]*>[\s\S]*?<\/MediaCodec>', '')
         .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', ''),
     # 'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
     #     .regex_replace(r'\s*<fqname>@1\.0::IComponentStore/dolby</fqname>', '')
